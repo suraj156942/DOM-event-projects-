@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bulb switch in javascript</title>
+	<style>
+		h1{
+			text-transform: uppercase;
+			font-size: 2rem;
+			text-align: center;
+		}
+		.mainDiv{
+			width: 100%;
+			height: 400px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+		.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:green;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: red;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px red;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+div#switch {
+    width: 100%;
+    text-align: center;
+    margin-top: -50px;
+}
+	</style>
+</head>
+<body>
+ <h1 class="bulbtext">on/off</h1>
+ <fieldset>
+ 	<legend>BULB SWITCH OPERATION </legend>
+
+<main class="mainDiv">
+	<figure>
+		<img src="bulboff.png" id="bulb1" >
+		<figcaption> Bulb ON/OFF</figcaption>
+		
+	</figure>
+	<figure>
+		<img src="bulboff.png" id="bulb2" onclick="funonoff()">
+		<figcaption> Bulb ON/OFF</figcaption>
+		
+	</figure>
+	<figure>
+		<img src="bulboff.png" id="bulb3" onclick="funonoff()">
+		<figcaption> Bulb ON/OFF</figcaption>
+		
+	</figure>
+
+
+	</div>
+
+</main>
+	<div id="switch">
+		<label class="switch">
+       <input type="checkbox" checked>
+       <span class="slider round"onclick="funonoff()"></span>
+</label>
+ </fieldset>
+  <script type="text/javascript">
+     
+ let btext=document.querySelector(".bulbtext");
+
+ const funonoff=()=>{
+  	for(let x=1;x<=3;x++){
+  		  const bid=document.querySelector("#bulb".concat(x));
+	      if(bid.src.match("bulboff"))
+	      {
+	      	bid.src="bulbon.png";
+	      	btext.innerHTML="Bulb is on";
+	        btext.style.color="green";
+	        btext.style.textShadow="1px 1px 1px green ";
+	      }
+	      else
+	      {
+	      	bid.src="bulboff.png";
+	      	btext.innerHTML="Bulb is off";
+	      	 btext.style.color="red";
+	      	  btext.style.textShadow="1px 1px 1px red ";
+	      }
+     } 
+  	}
+  </script>
+</body>
+</html>
