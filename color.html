@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hexa_color</title>
+	<style type="text/css">
+		   body{
+		   	  width: 1300px;
+		   	  height: 500px;
+		   	  display: flex;
+		   	  justify-content: center;
+		   	  align-items: center;
+		   }
+		   .hexaColor{
+		   	 text-transform: capitalize;
+		   }
+		   .hexa{
+		   	font-size: 2rem;
+		   }
+		   button#hexabtn {
+    background-color: #ebb1ad;
+    padding: 7px;
+    width: 100%;
+    color: whitesmoke;
+    border: 3px solid grey!important;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h2 class="hexaColor">this is hexa color</h2>
+	<span class="hexa"></span>
+	<button id="hexabtn">click me</button>
+</div>
+
+
+<script type="text/javascript">
+	const bgcolor=[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+	const bgBdy=document.querySelector("body");
+	const textcol=document.querySelector(".hexa");
+	const hexabtn=document.querySelector("#hexabtn");
+	hexabtn.addEventListener('click',getcode);
+	function getcode(){
+		let hexCol='#';
+		for(let i=0;i<=5;i++){
+		let random=Math.floor(Math.random()*bgcolor.length);
+		// console.log(random);
+		hexCol+=bgcolor[random];
+		// console.log(hexCol);
+	}
+	   bgBdy.style.backgroundColor=hexCol;
+	   textcol.innerHTML=hexCol;
+	}
+	
+</script>
+</body>
+</html>

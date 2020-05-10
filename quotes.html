@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quotes</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.bodycontainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+.container {
+    background-color: #9E9E9E;
+    padding: 60px;
+        box-shadow: 9px 0px 6px 4px #9e9e9e;
+    /* border: 30px; */
+    /* border-radius: 26px; */
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+
+}
+.container h2 {
+    color: aliceblue;
+    font-size: xxx-large;
+    text-decoration: underline;
+}
+button#quotebtn {
+    width: 100%;
+    background-image: linear-gradient(45deg, #F44336, #CDDC39);
+    padding: 10px;
+    color: whitesmoke;
+    font-size: 20px;
+}
+h3#Author {
+    color: yellowgreen;
+    font-size: xx-large;
+}
+	</style>
+</head>
+<body>
+	<div class="bodycontainer">
+    <div class="container">
+    	<h2>Message of the Day</h2>
+    	<button id="quotebtn">click me</button>
+    	<h2 id="quote"></h2>
+    	<h3 id="Author"></h3>
+
+    </div>
+</div>
+    <script>
+    	const quotes=[
+        {
+        	name:'stephan king',
+        	quote:'Get busy  or get get busy living'
+
+        },
+        {
+        	name:'john',
+        	quote:'Be honest'
+        },
+         {
+         	name:'Narendra modi',
+         	quote:'Stay home ,Stay safe'
+         }
+        ];
+        const quotebtn=document.querySelector("#quotebtn");
+        const quoteAuthor=document.querySelector("#Author");
+        const quote=document.querySelector("#quote");
+        quotebtn.addEventListener('click',getQuote);
+        function getQuote(){
+        	let number=Math.floor(Math.random()*quotes.length);
+        	quoteAuthor.innerHTML=quotes[number].quote;
+        	quote.innerHTML=quotes[number].name;
+        }
+
+    </script>
+</body>
+</html>
