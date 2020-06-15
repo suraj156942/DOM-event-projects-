@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emi calculator</title>
+	
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<style>
+   *{
+   	margin: 0;
+   	padding: 0;
+
+   }
+		form{
+
+		
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			
+		}
+		.box{
+			 width: 500px;
+			 height: 450px;
+			/*  background-color:white; */
+			background-image: linear-gradient(to top right, #2196F3 50%, #CDDC39 50%);
+			 box-sizing: border-box;
+		   /*   border-radius: 20px; */
+			 margin: 20px;
+	
+		/* 	box-shadow: 3px 2px 6px 2px #2196F3; */
+		}
+		label { font-style:bold;font-size:18px;display:block;margin-left:35px;margin-top:30px; }
+
+
+input { width: 400px; padding: 10px 10px; border: none; outline:none;margin-left:30px;     border-bottom: 2px solid black;}
+.input-field:focus {
+  border-bottom:  2px solid #FFC107;
+}
+
+.button {
+/*   background-color: #4CAF50; /* Green */ */
+  border-radius: 10px ;
+  color: white;
+  padding: 9px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 50px;
+  
+  cursor: pointer;
+      outline: none;
+
+
+}
+
+button.button.button3 {
+    color: white;
+    background-color: transparent;
+    border-radius: 10px;
+}
+button.button.button3:hover{
+	border: none;
+	outline: none;
+	background-color: violet;
+	color: white;
+}
+button.button.button2 {
+    background-color: violet;
+    color: whitesmoke;
+     border-radius: 10px ;
+ 
+}
+
+body {
+background-color: hsl(0, 0%, 66%);
+}
+ h1 {
+
+ 	margin: 10px;
+    text-align: center;
+    text-decoration: underline;
+    color: steelblue;
+       text-shadow: 3px -2px 0px #d9d3d3;
+	font-family: sans-serif;
+	
+}
+h3 {
+    width: 100%;
+    height: 30px;
+    background-color: steelblue;
+    color: whitesmoke;
+    font-size: x-large;
+}
+p{
+	color: red;
+    font-size: x-large;
+  margin-left: 30px;
+    text-shadow: 1px 0px 1px #E91E63;
+
+}
+@media screen and (max-width: 992px) {
+  form {
+    display: block;
+  }
+}
+		</style>
+</head>
+<body>
+	<h1>EMI CALCULATOR</h1>
+<form name="formval"onsubmit="return false">
+ <div class="box">
+		                        <center><h3    >Monthly Repayment(EMI)</h3></center>
+		                        
+                               <!--  <center> --><label>Price</label> 
+                                <input name="pr_amt" type="text"class="input-field"placeholder="Enter Price"autocomplete="off" >
+                               
+                                <label> Rate</label>
+                                <input name="int_rate" type="text"class="input-field"placeholder="Enter Rate"autocomplete="off">
+                       
+                       
+                  <label>Period (Months)</label> 
+                <input name="period" type="text"class="input-field"placeholder="Enter Period(Months)"autocomplete="off">
+                <br></br>
+                <p id="demo"></p>
+           
+                    
+                  <button class="button button3"onclick="emires()">RESET</button>
+
+                  <button class="button button2"onclick="emi()">CALCULATE</button>
+	</div>
+	<div class="box " id="bexresult"hidden>
+		 <center><h3>Results</h3> </center>
+		  <label>Pice</label>
+                                <input name="field1" type="text" class="input-field"autocomplete="off">
+                        
+                        
+                                <label>Rate</label>
+                                <input name="field2" type="text" class="input-field" autocomplete="off">
+                
+                        
+                                <label>Time</label>
+                                <input name="field3" type="text" class="input-field" autocomplete="off">
+                        
+                
+                                <label>EMI:</label>
+                                 <input name="field4" type="text" class="input-field"autocomplete="off">
+	</div>
+</form>
+
+
+     
+        <script type="text/javascript">
+        function emi()
+        {      
+		      
+               
+                var P = document.formval.pr_amt.value;
+
+                var rate = document.formval.int_rate.value; 
+                var n = document.formval.period.value; 
+         
+                var r = rate/(12*100); 
+                var prate = (P * r * Math.pow((1+r),n))/(Math.pow((1+r),n)-1); 
+                var emi = Math.floor(prate * 100) / 100; 
+         
+                // document.getElementById("bexresult").style.display = "block";
+                 document.formval.field1.value = P;
+                 document.formval.field2.value = rate;
+                 document.formval.field3.value = n;
+                 document.formval.field4.value = emi.toFixed(3);
+                 if(P=="" && rate=="" && n=="")
+                 {
+                     document.getElementById("demo").innerHTML="Must fill valid data";
+                 }else if (isNaN(P)){
+                             document.getElementById("demo").innerHTML="Digit only";
+                 }else if (isNaN(rate)){
+                             document.getElementById("demo").innerHTML="Digit only";
+                 }else if (isNaN(n)){
+                             document.getElementById("demo").innerHTML="Digit only";
+                 }
+                 else {
+                 	document.getElementById("demo").innerHTML="";
+                 	document.getElementById("bexresult").style.display = "block";
+                 }
+          
+        }
+        function emires(){
+		 document.getElementById("bexresult").style.display = "none";
+        	     document.formval.pr_amt.value="";
+                 document.formval.int_rate.value="";
+                 document.formval.period.value=""; 
+                 document.formval.field1.value = "";
+                 document.formval.field2.value = "";
+                 document.formval.field3.value = "";
+                 document.formval.field4.value = "";
+                 document.getElementById("demo").innerHTML="";
+        }
+        </script>
+</body>
+</html>
