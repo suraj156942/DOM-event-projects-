@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI</title>
+	<style>
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password] {
+	width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 800px;
+  margin: 20px auto;
+  border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    box-shadow: 6px 3px 3px 4px #9e9e9e8c;
+}
+body {
+   min-height: 100vh;
+    background-image: linear-gradient(45deg, #9C27B0, #de7aef);
+   
+}
+form{
+	margin: 20px auto;
+}
+p{
+  text-align: right;
+}
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: -1px 0px 3px black;
+}
+input[type="button"] {
+    text-align: center;
+    font-size: x-large;
+    background-color: #9acd32;
+    color: whitesmoke;
+    box-shadow: 2px 0px 19px 0px #9E9E9E;
+}
+label {
+    font-size: 29px;
+    font-weight: 900;
+    /* background-color: #612828; */
+  /*   box-shadow: 0px 0px black; */
+}
+input#weight {
+    background-color: #f3a618;
+    font-size: large;
+          color: #020202;
+  
+}
+input#height {
+    background-color: #fcfcfc;
+    color: #0c2ff3;
+    font-size: large;
+}
+input#bmivalue {
+   /*  background-color: green; */
+    color: whitesmoke;
+    font-size: large;
+}
+input#cal {
+    background-color: red;
+    border: 3px solid black;
+}
+input#res {
+    background-color: #3a9969;
+    border: 3px solid black;
+    box-shadow: 0px 0px black;
+}
+h3 {
+    text-align: end;
+    text-shadow: -1px 4px 5px black;
+    text-transform: capitalize;
+    color: blue;
+}
+</style>
+	
+</head>
+<body>
+	<h1>BMI CALCULATOR</h1>
+
+<div>
+  <form action="#">
+    <label for="fname">weight (Kilograms)</label>
+    <input type="text" id="weight"autocomplete="off" ><br><br>
+
+
+    <label for="password">Height (Feet)</label>
+    <input type="text" id="height"autocomplete="off" ></span><br><br>
+
+
+    
+     <label for=" Mobile Number"> BMI VALUE</label>
+    <input type="text" id="bmivalue" ><br><br>
+     
+    <input type="button"  id="cal"value="Calculate" onclick="bmicalculate()">
+   <input type="button"  id="res"value="Reset" onclick="reset()">
+    <h1>For healthy BMI range 19 to 25</h1>
+ 
+  </form>
+ <h3>&copy;  Developed by suraj kumar sharma</h3>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+		function bmicalculate() {
+
+     var weight=Number(document.getElementById("weight").value);
+     var height=Number(document.getElementById("height").value);
+     var bmivalue=document.querySelector("#bmivalue");
+    // var show="";
+    height=height*12;
+    height=height*0.025;
+    bmi=weight/Math.pow(height,2);
+    bmi=Math.floor(bmi);
+   bmivalue.value = `${bmi}`
+if(bmi < 18.5){
+       bmivalue.value = bmi+"                                                                        "+"You are underweight";
+       bmivalue.style.color="#5656ff";
+        bmivalue.style.borderColor="#5656ff";
+}
+else if(bmi > 18.5 && bmi < 25){
+       bmivalue.value=  bmi+"                                                                        "+"You are healthy";
+       bmivalue.style.color="green";
+     bmivalue.style.borderColor="green";
+
+}
+
+else if(bmi>=25 && bmi <= 40)  {
+bmivalue.value =bmi+"                                                                    "+" You have overweight";
+bmivalue.style.color="red";
+bmivalue.style.borderColor="red";
+
+}
+else
+{
+	bmivalue.value="FILL VALID INPUT";
+	bmivalue.style.color="red";
+	bmivalue.style.textAlign="center";
+}
+
+	}
+  function reset()  {
+   document.getElementById("weight").value="";
+    document.getElementById("height").value="";
+    document.querySelector("#bmivalue")="";
+    // bmivalue.style.borderColor="grey";
+    // // if(bmi>25)''[
+
+  }
+	</script>
+
+</body>
+</html>
