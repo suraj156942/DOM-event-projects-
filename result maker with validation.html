@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result calculator</title>
+	
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+	<style>
+   *{
+   	margin: 0;
+   	padding: 0;
+   box-sizing: border-box;
+   }
+   section {
+    width: 80%;
+    height: 100px;
+    /* background-color: aquamarine; */
+      border: 2px solid aquamarine;
+  padding: 8px;
+  border-radius: 25px;
+}
+		form{
+
+		
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			
+		}
+		.box{
+			 width: 100%;
+			 height: auto;
+			/*  background-color:white; */
+			/* background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-5428003.jpg&fm=jpg'); */
+			 box-sizing: border-box;
+		  background-size: 100% 100%;
+	  
+		}
+    main {
+     width: 50%;
+    margin: 11px auto;
+    border: 5px solid;
+    background-color: sienna;
+    }
+		label { font-style:bold;font-size:18px;display:block;margin-left:35px;margin-top:30px; color: aliceblue;}
+
+
+input { width: 80%; padding: 10px 10px; outline:none;margin-left:30px;     border-bottom: 2px solid black;text-align: center;}
+.input-field:focus {
+  border-bottom:  2px solid #FFC107;
+}
+
+.button {
+/*   background-color: #4CAF50; /* Green */ */
+  border-radius: 10px ;
+  color: white;
+  padding: 9px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 50px;
+  
+  cursor: pointer;
+      outline: none;
+
+
+}
+
+button.button.button3 {
+    color: white;
+    background-color: transparent;
+    border-radius: 10px;
+}
+button.button.button3:hover{
+	border: none;
+	outline: none;
+	background-color: violet;
+	color: white;
+}
+button.button.button2 {
+    background-color: violet;
+    color: whitesmoke;
+     border-radius: 10px ;
+ 
+}
+
+/* body {
+background-color: hsl(0, 0%, 66%);
+} */
+/*  h1 {
+
+ 	margin: 10px;
+    text-align: center;
+    text-decoration: underline;
+    color: steelblue;
+       text-shadow: 3px -2px 0px #d9d3d3;
+	font-family: sans-serif;
+	
+} */
+h1 {
+    width: 100%;
+    height: 30px;
+    background-color: steelblue;
+    color: whitesmoke;
+    /* font-size: 10px; */
+    text-align: center;
+    font-family: cosmic sans-serif;
+    font-size: 29px;
+    text-shadow: 3px 1px 3px black;
+}
+p{
+	color: red;
+    font-size: x-large;
+  margin-left: 30px;
+    text-shadow: 1px 0px 1px #E91E63;
+
+}
+span {
+    width: 100%;
+    display: grid;
+}
+div#bexresult {
+  width: auto;
+    height: 96vh;
+     background-color:  aliceblue;
+    /* background-image: url(watermark.jpg); */
+    background-size: 100% 100%;
+}
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+
+
+@media screen and (max-width: 992px) {
+  form {
+    display: block;
+  }
+}
+		</style>
+</head>
+<body>
+	
+<form name="formval"onsubmit="return false">
+ <div class="box" id="input">
+<h1>GURUKUL&nbsp;&nbsp; ACADEMY</h1>
+		      <main>                  
+            <label>Name</label> 
+            <input name="pr_amt" type="text"class="input-field"placeholder="Enter your name"autocomplete="" required>
+
+                 <label>Roll No</label> 
+            <input name="pr_roll" type="text"class="input-field"placeholder="Enter Roll no"autocomplete="" required>
+                 <label>Class</label> 
+            <input name="pr_class" type="text"class="input-field"placeholder="Enter Class"autocomplete="" required>
+                                 
+            <label> HINDI</label>
+            <input name="int_rate" type="text"class="input-field"placeholder="Enter Hindi mark's"autocomplete="" required>
+                       
+                       
+            <label>ENGLISH</label> 
+            <input name="period" type="text"class="input-field"placeholder="Enter English mark's"autocomplete="" required>
+            <label> Math</label>
+            <input name="math" type="text"class="input-field"placeholder="Enter Math mark's"autocomplete="" required>
+            <label>Social Science</label>
+            <input name="sst" type="text"class="input-field"placeholder="Enter Social Science mark's"autocomplete="" required>
+            <label> SCIENCE</label>
+            <input name="sc" type="text"class="input-field"placeholder="Enter Science mark's"autocomplete="" required>
+            <label> COMPUTER(Optional)</label>
+            <input name="comp" type="text"class="input-field"placeholder="Enter Rate"autocomplete="" required>
+
+                <br></br>
+                <p id="demo"></p>
+           
+                   <span> 
+                  <button class="button button3"onclick="emires()">RESET</button>
+
+                  <button class="button button2"onclick="emi()">CALCULATE</button>
+                </span>
+                </main>
+	</div>
+
+	   
+	<div class="box1 " id="bexresult"hidden>
+   	   
+
+		 
+
+		  <div class="container">
+		  		 <center><h3>Result</h3> </center>
+        <section>
+         <p id="name"></p>
+        </section>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Total mark</th>
+        <th>Obtained mark's</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hindi</td>
+        <td>100</td>
+        <td id="hindi"></td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>100</td>
+        <td id="eng"></td>
+      </tr>
+      <tr>
+        <td>Mathematics</td>
+        <td>100</td>
+        <td id="math"></td>
+      </tr>
+      <tr>
+        <td>Social Science</td>
+        <td>100</td>
+        <td id="sst"></td>
+      </tr>
+       <tr>
+        <td> Science</td>
+        <td>100</td>
+        <td id="sc"></td>
+      </tr>
+      <tr>
+        <td>Computer Science (optional)</td>
+        <td>100</td>
+        <td id="comp"></td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>500</td>
+        <td id="toralscore"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+     <p id="resulttext"></p>      
+     <br>
+	<footer>
+
+     <a href="#" onclick="goback()"class="previous">&laquo; Previous</a>    
+      <a href="#" onclick="window.print()"class="previous">&laquo; Print</a>          
+</footer>         
+	</div>
+
+</form>
+
+
+     
+        <script type="text/javascript">
+        	
+        function emi()
+        { 
+						                 
+				  var P = document.formval.pr_amt.value;
+                  var r = document.formval.pr_roll.value;
+                  var c = document.formval.pr_class.value;
+
+                 var h = Number(document.formval.int_rate.value); 
+                 var e = Number(document.formval.period.value); 
+                 
+                var m = Number(document.formval.math.value); 
+                var sst = Number(document.formval.sst.value); 
+                
+                var sc = Number(document.formval.sc.value); 
+                var comp =Number(document.formval.comp.value); 
+                var grades="";
+                toralscore=h+e+m+sst+sc+comp;
+                
+                var perc=(toralscore/600)*100;
+                 var perc=Math.floor(perc);
+                  if(perc<=100 && perc>=80)
+                        {
+                          grades='A';
+                          }
+                        else if(perc<=79 && perc>=60) {
+                                     grades='B';
+                                 }
+                          else if(perc<=59 && perc>=40) {
+                                     grades='C';
+                                 }   
+                                 else {
+                                   grades='D';
+                                 } 
+                        document.querySelector("#hindi").innerHTML=h;
+                        document.querySelector("#eng").innerHTML=e;
+                        document.querySelector("#math").innerHTML=m;
+                        document.querySelector("#sst").innerHTML=sst;
+                        document.querySelector("#sc").innerHTML=sc;
+                         document.querySelector("#comp").innerHTML=comp;
+                        document.querySelector("#toralscore").innerHTML=toralscore;
+       document.getElementById("name").innerHTML=`<p style="color:green;"> Name: ${P}<br> Roll : ${r} &nbsp;&nbsp&nbsp;   Class: ${c}</p> ` 
+
+               if(perc>=39.5)
+                 {
+                   document.getElementById("resulttext").innerHTML=`<h2 style="color:green;">your score is ${toralscore} out of 600 and percentage is ${perc}% and grades is ${grades} </h2>  ` 
+                 }  
+                 else {
+               document.getElementById("resulttext").innerHTML=`<h2 style="color:red;">your score is  ${toralscore} out of 600 and percentage is ${perc}% and grades is ${grades} </h2> ` 
+             
+           }
+         
+
+                 if((P=="" )||(r=="")||(c=="")||(h=="")||(e=="")||(m=="")||(sst=="")||(sc=="")||(comp==""))
+                 {
+                     document.getElementById("demo").innerHTML="Must fill valid data";
+                 }
+                 
+                 else {
+                 	document.getElementById("demo").innerHTML="";
+                 	 document.getElementById("bexresult").style.display = "block";
+                     document.getElementById("input").style.display = "none";
+                 }
+          
+        }
+        function emires(){
+		 document.getElementById("bexresult").style.display = "none";
+        	     document.formval.pr_amt.value="";
+                 document.formval.int_rate.value="";
+                 document.formval.period.value=""; 
+                 document.formval.field1.value = "";
+                 document.formval.field2.value = "";
+                 document.formval.field3.value = "";
+                 document.formval.field4.value = "";
+                 document.getElementById("demo").innerHTML="";
+        }
+        function goback() {
+                        document.getElementById("bexresult").style.display = "none";
+                        document.getElementById("input").style.display = "block";     
+}
+        </script>
+</body>
+</html>
